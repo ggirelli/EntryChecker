@@ -1,0 +1,15 @@
+/**
+ * Importing and settings.
+ */
+
+@import 'css/main.css';
+
+@font-face {
+	font-family: backspacer;
+	src: url('vendor/fonts/backspacer.ttf');
+}
+
+@font-face {
+	font-family: optimus;
+	src: url('vendor/fonts/optimus.ttf');
+}

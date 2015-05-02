@@ -6,17 +6,21 @@
 
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
-	<link rel="stylesheet"  type="text/css" href="css/bootstrap.css" />
+	<link rel="stylesheet"  type="text/css" href="vendor/css/bootstrap.css" />
 	<link rel="stylesheet"  type="text/css" href="style.css" />
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/angular.min.js"></script>
+	<script src="vendor/js/jquery.min.js"></script>
+	<script src="vendor/js/bootstrap.min.js"></script>
+	<script src="vendor/js/angular.min.js"></script>
 </head>
 <body>
 
 	<div id="wrap">
-		
+
+
+		<h1>Get Inside!</h1>
+
+
 	</div>
 
 </body>
