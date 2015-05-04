@@ -12,48 +12,6 @@ html, body {
 	font-size: 14px;
 }
 
-h1.title {
-	margin-top: 1em;
-	margin-bottom: 1em;
-	padding: 0.2em;
-
-	font-family: backspacer;
-	font-size: 5em;
-	text-align: center;
-
-	overflow: hidden;
-}
-
-.ticket-input {
-	margin-bottom: 1em;
-	padding: 0;
-
-	height: 2em;
-
-	text-align: right;
-}
-
-.ticket-input input,
-.ticket-input .input-group-addon {
-	height: 2em;
-
-	font-size: 2em;
-	text-align: center;
-}
-
-.ticket-input .input-group-addon {
-	font-family: optimus;
-}
-
-.submit {
-	margin-top: 2.5em;
-}
-
-#menu {
-	margin-bottom: 2em;
-	margin-top: 4em;
-}
-
 /** BUTTONS **/
 
 .btn {
@@ -102,6 +60,8 @@ h1.title {
 	border: 0 solid rgb(255,184,95);
 	border-bottom-width: 4px;
 }
+
+/** JUMBO **/
 
 .jumbotron {
 	position: fixed;

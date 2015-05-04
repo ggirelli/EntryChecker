@@ -3,6 +3,9 @@
  */
 
 @import 'css/main.css';
+@import 'css/entry.css';
+@import 'css/sale.css';
+@import 'css/verify.css';
 
 @font-face {
 	font-family: backspacer;

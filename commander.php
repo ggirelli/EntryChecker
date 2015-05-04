@@ -26,7 +26,9 @@ if( isset($data->action) ) {
 
 		switch($data->action) {
 
-			case 'entry': case 'listTickets':
+			case 'entry':
+			case 'listTickets':
+			case 'setNotEntered':
 
 			{
 				require_once('action/' . $data->action . '.action.php');

@@ -1,0 +1,41 @@
+#entry h1.title {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding: 0.2em;
+
+	font-family: backspacer;
+	font-size: 5em;
+	text-align: center;
+
+	overflow: hidden;
+}
+
+#entry .ticket-input {
+	margin-bottom: 1em;
+	padding: 0;
+
+	height: 2em;
+
+	text-align: right;
+}
+
+#entry .ticket-input input,
+#entry .ticket-input .input-group-addon {
+	height: 2em;
+
+	font-size: 2em;
+	text-align: center;
+}
+
+#entry .ticket-input .input-group-addon {
+	font-family: optimus;
+}
+
+#entry .submit {
+	margin-top: 2.5em;
+}
+
+#entry #menu {
+	margin-bottom: 2em;
+	margin-top: 4em;
+}

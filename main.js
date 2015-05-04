@@ -158,13 +158,43 @@ angular.module('getinside', ['ngAnimate'])
 
 	.controller('verifyController',
 		function($scope, $http) {
+			$scope.pwd = '';
 			$scope.ticketList = [];
+
+			$scope.ticketFilter = {
+				number: '',
+				name: '',
+				resetNumber: function () {
+					$scope.ticketFilter.number = '';
+				},
+				resetName: function () {
+					$scope.ticketFilter.name = '';
+				}
+			}
+
+			$scope.setNotEntered = function (id, pwd) {
+				$http({
+
+					method: 'POST',
+					data: {
+						action: 'setNotEntered',
+						ticket: id,
+						pwd: pwd
+					},
+					url: 'be/'
+
+				})
+					.success(function (data) {
+						$scope.getList();
+					});
+
+			};
 			
 			/**
 			 * Retrieve ticket information
 			 * @return {null}
 			 */
-			getList = function () {
+			$scope.getList = function () {
 
 				$http({
 
@@ -181,7 +211,7 @@ angular.module('getinside', ['ngAnimate'])
 
 			};
 
-			getList();
+			$scope.getList();
 
 		}
 	);

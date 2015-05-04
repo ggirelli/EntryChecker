@@ -4,4 +4,3 @@
 
 * entry counter
 * sale section
-* verify section with filter
