@@ -49,7 +49,10 @@ h1.title {
 	margin-top: 2.5em;
 }
 
-#menu {margin-top: 4em;}
+#menu {
+	margin-bottom: 2em;
+	margin-top: 4em;
+}
 
 /** BUTTONS **/
 
