@@ -4,9 +4,125 @@ html, body {
 
 	margin: 0;
 	padding: 0;
+
+	background-color: #323232;
+
+	color: #ffffff;
+	font-family: arial;
+	font-size: 14px;
 }
 
-h1 {
+h1.title {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding: 0.2em;
+
 	font-family: backspacer;
 	font-size: 5em;
+	text-align: center;
+
+	overflow: hidden;
+}
+
+.ticket-input {
+	margin-bottom: 1em;
+	padding: 0;
+
+	height: 2em;
+
+	text-align: right;
+}
+
+.ticket-input input,
+.ticket-input .input-group-addon {
+	height: 2em;
+
+	font-size: 2em;
+	text-align: center;
+}
+
+.ticket-input .input-group-addon {
+	font-family: optimus;
+}
+
+.submit {
+	margin-top: 2.5em;
+}
+
+#menu {margin-top: 4em;}
+
+/** BUTTONS **/
+
+.btn {
+	border-radius: 6px;
+	font-size: 24px;
+}
+
+.btn-aqua {
+	background-color: rgb(16, 156, 126);
+	color: white;
+	border: 1px solid rgb(13, 135, 110);
+	border-bottom-width: 4px;
+}
+
+.btn-aqua:hover {
+	background-color: rgb(13, 135, 110);
+	color: white;
+	border: 0 solid rgb(16, 156, 126);
+	border-bottom-width: 4px;
+}
+
+.btn-reddish {
+	background-color: rgb(232, 78, 48);
+	color: white;
+	border: 1px solid rgb(212, 71, 44);
+	border-bottom-width: 4px;
+}
+
+.btn-reddish:hover {
+	background-color: rgb(212, 71, 44);
+	color: white;
+	border: 0 solid rgb(232, 78, 48);
+	border-bottom-width: 4px;
+}
+
+.btn-gold {
+	background-color: rgb(255,184,95);
+	color: white;
+	border: 1px solid rgb(255,158,82);
+	border-bottom-width: 4px;
+}
+
+.btn-gold:hover {
+	background-color: rgb(255,158,82);
+	color: white;
+	border: 0 solid rgb(255,184,95);
+	border-bottom-width: 4px;
+}
+
+.jumbotron {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	margin: 0;
+
+	color: #323232;
+	font-family: optimus;
+	font-size: 5em;
+	text-align: center;
+
+	z-index: 10;
+}
+
+.jumbotron.red {
+	background-color: #D4472C;
+	color: white;
+}
+
+.jumbotron.green {
+	background-color: #76CC99;
+	color: white;
 }
