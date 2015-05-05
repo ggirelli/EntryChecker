@@ -17,7 +17,7 @@
 </head>
 <body>
 
-	<div id="wrap" class="col-sm-8 col-sm-offset-2" ng-app='getinside' ng-controller="pageController as ctrl">
+	<div id="wrap" class="col-sm-12 col-md-8 col-md-offset-2" ng-app='getinside' ng-controller="pageController as ctrl">
 		
 		<!-- homepage -->
 		<div id="entry" ng-include="'pages/home.php'" ng-controller='entryController as eCtrl' ng-model='eCtrl' ng-if="page.is(1)"></div>
