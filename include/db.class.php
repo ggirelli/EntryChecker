@@ -6,7 +6,7 @@
  */
 
 /**
- * MySQL ddatabase management
+ * MySQL database management
  * @since 0.2.0
  */
 class C2MySQL {
