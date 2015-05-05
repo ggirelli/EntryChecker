@@ -37,6 +37,6 @@
 
 <input class="input-password form-control" type="password" id="password" name="password" ng-model="pwd" placeholder="Password di amministrazione richiesta per operare." />
 
-<button class="btn btn-aqua btn-block" ng-click="page.set(1)">Indietro</button>
+<button class="btn btn-reddish btn-block" ng-click="howManyInside()">Quanti biglietti sono entrati?</button>
 
-<div class="jumbotron {{jumbo.classes}}" ng-if="jumbo.show">{{jumbo.content}}</div>
+<button class="btn btn-aqua btn-block" ng-click="page.set(1)">Indietro</button>

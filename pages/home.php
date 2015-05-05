@@ -22,5 +22,3 @@
 	<button class="btn btn-gold btn-block" ng-click="page.set(3)">Manager</button>
 	<button class="btn btn-sky btn-block" ng-click="page.set(4)">Istruzioni</button>
 </div>
-
-<div class="jumbotron {{jumbo.classes}}" ng-if="jumbo.show">{{jumbo.content}}</div>

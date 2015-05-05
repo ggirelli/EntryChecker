@@ -13,6 +13,7 @@
 	<script src="vendor/js/bootstrap.min.js"></script>
 	<script src="vendor/js/angular.min.js"></script>
 	<script src="vendor/js/angular-animate.min.js"></script>
+	<script src="vendor/js/angular-sanitize.min.js"></script>
 </head>
 <body>
 
@@ -30,6 +31,9 @@
 		<!-- help -->
 		<div id="help" ng-include="'pages/help.php'" ng-if="page.is(4)"></div>
 
+		
+		<!-- jumbotron -->
+		<div class="jumbotron {{jumbo.classes}}" ng-if="jumbo.show" ng-bind-html="jumbo.content"></div>
 
 	</div>
 

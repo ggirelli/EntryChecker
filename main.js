@@ -1,4 +1,4 @@
-angular.module('getinside', ['ngAnimate'])
+angular.module('getinside', ['ngAnimate', 'ngSanitize'])
 
 	.controller('pageController',
 		function($scope) {
@@ -82,7 +82,7 @@ angular.module('getinside', ['ngAnimate'])
 			 * Saves the ticket in the database
 			 * @return {null}
 			 */
-			$scope.enter = function() {
+			$scope.enter = function () {
 
 				var ticket = null;
 				var residency = 0;
@@ -128,7 +128,8 @@ angular.module('getinside', ['ngAnimate'])
 									} else {
 										if ( 1 == data['entering'] ) {
 											$scope.jumbo.classes = 'green';
-											$scope.jumbo.content = 'Il biglietto #' + data['ticket'] + ' puo\' entrare';
+											$scope.jumbo.content = 'Il biglietto #' + data['ticket'] + ' puo\' entrare.<br />';
+											$scope.jumbo.content += 'Entrata numero: ' + data['number'];
 											$timeout(function() { $scope.resetTicket(); }, $scope.delay);
 										}
 									}
@@ -252,6 +253,24 @@ angular.module('getinside', ['ngAnimate'])
 						$scope.jumbo.toggle();
 						$timeout(function () { $scope.jumbo.reset(); }, $scope.delay);
 						$scope.getList();
+					});
+
+			};
+
+			$scope.howManyInside = function () {
+
+				$http({
+
+					method: 'POST',
+					data: {
+						action: 'howManyInside'
+					},
+					url: 'be/'
+
+				})
+					.success(function (data) {
+						console.log(data);
+						alert(data['number']);
 					});
 
 			};

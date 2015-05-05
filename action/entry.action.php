@@ -41,7 +41,10 @@ if ( 0 == $q->size() ) {
 				die('{"err":-1}');
 			}
 
-			die('{"err":0, "size":1, "sold":1, "entered":0, "entering":1, "ticket":' . $ticket . '}');
+			$sql = "SELECT id FROM `tickets` WHERE `when` IS NOT NULL";
+			$q = $s->query($sql);
+
+			die('{"err":0, "size":1, "sold":1, "entered":0, "entering":1, "ticket":' . $ticket . ', "number":' . $q->size() . '}');
 
 		} else {
 			// Already entered

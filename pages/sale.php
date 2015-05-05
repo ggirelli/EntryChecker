@@ -13,5 +13,3 @@
 </form>
 
 <button class="btn btn-aqua btn-block" ng-click="page.set(1)">Indietro</button>
-
-<div class="jumbotron {{jumbo.classes}}" ng-if="jumbo.show">{{jumbo.content}}</div>

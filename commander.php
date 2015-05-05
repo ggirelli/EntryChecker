@@ -27,6 +27,7 @@ if( isset($data->action) ) {
 		switch($data->action) {
 
 			case 'entry':
+			case 'howManyInside':
 			case 'listTickets':
 			case 'sale':
 			case 'setNotEntered':
