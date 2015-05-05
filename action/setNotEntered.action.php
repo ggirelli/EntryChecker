@@ -11,7 +11,7 @@ $s = new C2MySQL(HOST, USER, PWD, DB_NAME);
 
 $ticket = $s->escape_string($data->ticket);
 
-$sql = "SELECT * FROM `tickets` WHERE `id`=$ticket";
+$sql = "SELECT * FROM `tickets` WHERE `id`='$ticket'";
 $q = $s->query($sql);
 
 if ( SU_PWD != $data->pwd ) {
@@ -21,13 +21,13 @@ if ( SU_PWD != $data->pwd ) {
 if ( 1 != $q->size() ) {
 	die('{"err":1}');
 } else {
-	$sql = "UPDATE `tickets` SET `when`=NULL WHERE `id`=$ticket";
+	$sql = "UPDATE `tickets` SET `when`=NULL WHERE `id`='$ticket'";
 	$q = $s->query($sql);
 
 	if ( $s->isError() ) {
 		die('{"err":-1}');
 	} else {
-		die('{"err":0,"id":' . $ticket . '}');
+		die('{"err":0,"id":"' . $ticket . '"}');
 	}
 }
 

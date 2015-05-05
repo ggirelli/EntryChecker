@@ -87,7 +87,7 @@ angular.module('getinside', ['ngAnimate', 'ngSanitize'])
 				var ticket = null;
 				var residency = 0;
 				if ( $scope.rTicket.is() ) {
-					ticket = $scope.rTicket.value;
+					ticket = "R" + $scope.rTicket.value;
 					residency = 1;
 				}
 				if ( $scope.ticket.is() ) ticket = $scope.ticket.value;
@@ -112,7 +112,6 @@ angular.module('getinside', ['ngAnimate', 'ngSanitize'])
 
 				})
 					.success(function(data) {
-						if ( 1 == residency ) { data['ticket'] = 'R' + data['ticket']; }
 						$scope.jumbo.classes = 'red';
 						switch(data['err']) {
 							case -1: {
@@ -243,6 +242,7 @@ angular.module('getinside', ['ngAnimate', 'ngSanitize'])
 
 				})
 					.success(function (data) {
+						console.log(data);
 						if ( 0 == data['err'] ) {
 							$scope.jumbo.classes = 'green';
 							$scope.jumbo.content = 'Biglietto #' + data['id'] + ' impostato come "NON ENTRATO".';
@@ -297,6 +297,34 @@ angular.module('getinside', ['ngAnimate', 'ngSanitize'])
 			};
 
 			$scope.getList();
+
+		}
+	)
+
+	.controller('initDataBaseController',
+		function($scope, $http) {
+
+			$scope.initDataBase = function () {
+
+				var ans = prompt('Inizializzare il database? (y/n)');
+				if ( 'y' != ans ) return;
+
+				$http({
+
+					method: 'POST',
+					data: {
+						action: 'initDataBase'
+					},
+					url: 'be/'
+
+				})
+					.success(function (data) {
+						console.log(data);
+					});
+
+			};
+
+			$scope.initDataBase();
 
 		}
 	);

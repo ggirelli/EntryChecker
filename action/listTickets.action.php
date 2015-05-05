@@ -15,7 +15,7 @@ $q = $s->query($sql);
 $a = '[';
 for ($i = 1; $i <= $q->size(); $i++) { 
 	$r = $q->fetch();
-	$a .= '{"id":' . $r['id'] . ', "name":"' . $r['name'] . '", "residency":' . $r['residency'] . ', "when":"' . $r['when'] . '"}';
+	$a .= '{"id":"' . $r['id'] . '", "name":"' . $r['name'] . '", "residency":' . $r['residency'] . ', "when":"' . $r['when'] . '"}';
 	if ( $i != $q->size() ) $a .= ',';
 }
 $a .= ']';

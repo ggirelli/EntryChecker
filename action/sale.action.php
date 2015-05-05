@@ -19,10 +19,9 @@ $name = $s->escape_string($data->name);
 $residency = 0;
 if ( "R" == $ticket[0] ) {
 	$residency = 1;
-	$ticket = substr($ticket, 1);
 }
 
-$sql = "SELECT * FROM `tickets` WHERE `id`=$ticket AND `residency`=$residency";
+$sql = "SELECT * FROM `tickets` WHERE `id`='$ticket' AND `residency`=$residency";
 $q = $s->query($sql);
 
 if ( 0 == $q->size() ) {
@@ -37,7 +36,7 @@ if ( 0 == $q->size() ) {
 		// Already sold
 		die('{"err":3}');
 	} else {
-		$sql = "UPDATE `tickets` SET `name`='" . $name . "' WHERE `id`=$ticket AND `residency`=$residency";
+		$sql = "UPDATE `tickets` SET `name`='" . $name . "' WHERE `id`='$ticket' AND `residency`=$residency";
 		$q = $s->query($sql);
 
 		if ( $s->isError() ) {

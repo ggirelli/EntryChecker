@@ -28,6 +28,7 @@ if( isset($data->action) ) {
 
 			case 'entry':
 			case 'howManyInside':
+			case 'initDataBase':
 			case 'listTickets':
 			case 'sale':
 			case 'setNotEntered':
