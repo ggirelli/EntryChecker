@@ -1,0 +1,13 @@
+#sale form {
+	margin-bottom: 3em;
+	margin-top: 3em;
+}
+
+#sale input {
+	height: 2em;
+
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+
+	font-size: 2em;
+}

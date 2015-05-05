@@ -3,6 +3,8 @@ angular.module('getinside', ['ngAnimate'])
 	.controller('pageController',
 		function($scope) {
 
+			$scope.delay = 3000;
+
 			$scope.page = {
 				value: 1,
 
@@ -15,13 +17,25 @@ angular.module('getinside', ['ngAnimate'])
 				}
 			};
 
+			$scope.jumbo = {
+				show: false,
+				toggle: function() {
+					$scope.jumbo.show = !$scope.jumbo.show;
+				},
+				classes: '',
+				content: '',
+				reset: function() {
+					$scope.jumbo.show = false;
+					$scope.jumbo.classes = '';
+					$scope.jumbo.content = '';
+				}
+			};
+
 		}
 	)
 
 	.controller('entryController', 
 		function($scope, $http, $timeout) {
-			
-			var delay = 3000;
 
 			/**
 			 * Residency ticket
@@ -40,7 +54,6 @@ angular.module('getinside', ['ngAnimate'])
 				}
 
 			};
-
 
 			/**
 			 * Normal ticket
@@ -65,7 +78,6 @@ angular.module('getinside', ['ngAnimate'])
 				$scope.ticket.value = null;
 			}
 
-
 			/**
 			 * Saves the ticket in the database
 			 * @return {null}
@@ -80,7 +92,13 @@ angular.module('getinside', ['ngAnimate'])
 				}
 				if ( $scope.ticket.is() ) ticket = $scope.ticket.value;
 
-				if ( null == ticket ) return;
+				if ( null == ticket ) {
+					$scope.jumbo.classes = 'red';
+					$scope.jumbo.content = 'Leggi le istruzioni se non sai come fare.';
+					$scope.jumbo.toggle();
+					$timeout(function () { $scope.jumbo.reset(); }, $scope.delay);
+					return;
+				}
 
 				$http({
 
@@ -111,7 +129,7 @@ angular.module('getinside', ['ngAnimate'])
 										if ( 1 == data['entering'] ) {
 											$scope.jumbo.classes = 'green';
 											$scope.jumbo.content = 'Il biglietto #' + data['ticket'] + ' puo\' entrare';
-											$timeout(function() { $scope.resetTicket(); }, delay);
+											$timeout(function() { $scope.resetTicket(); }, $scope.delay);
 										}
 									}
 								}
@@ -127,37 +145,76 @@ angular.module('getinside', ['ngAnimate'])
 							}
 						};
 						$scope.jumbo.toggle();
-						$timeout(function() { $scope.jumbo.reset(); }, delay);
+						$timeout(function() { $scope.jumbo.reset(); }, $scope.delay);
 					});
 
 			};
-
-			$scope.jumbo = {
-				show: false,
-				toggle: function() {
-					$scope.jumbo.show = !$scope.jumbo.show;
-				},
-				classes: '',
-				content: '',
-				reset: function() {
-					$scope.jumbo.show = false;
-					$scope.jumbo.classes = '';
-					$scope.jumbo.content = '';
-				}
-			};
-
 
 		}
 	)
 
 	.controller('saleController',
-		function($scope, $http) {
+		function($scope, $http, $timeout) {
+
+			$scope.saleTmp = {
+				name: null,
+				number: null,
+				pwd: null,
+				reset: function () {
+					$scope.saleTmp.name = null;
+					$scope.saleTmp.number = null;
+					$scope.saleTmp.pwd = null;
+				}
+			};
+
+			$scope.sale = function () {
+
+				$http({
+
+					method: 'POST',
+					data: {
+						action: 'sale',
+						ticket: $scope.saleTmp.number,
+						name: $scope.saleTmp.name,
+						pwd: $scope.saleTmp.pwd
+					},
+					url: 'be/'
+
+				})
+					.success(function (data) {
+						console.log(data);
+						$scope.jumbo.classes = 'red';
+						switch(data['err']) {
+							case 1: {
+								$scope.jumbo.content = 'Biglietto non trovato.';
+								break;
+							}
+							case -1: case 2: case 4: {
+								$scope.jumbo.content = 'Errore, contatta l\'admin';
+								break;
+							}
+							case 3: {
+								$scope.jumbo.content = 'Biglietto già venduto.';
+								break;
+							}
+							case 0: {
+								$scope.jumbo.classes = 'green';
+								$scope.jumbo.content = 'Biglietto #' + $scope.saleTmp.number + ' venduto a ' + $scope.saleTmp.name + '.';
+								$scope.saleTmp.reset();
+								break;
+							}
+						}
+						$scope.jumbo.toggle();
+						$timeout(function () { $scope.jumbo.reset(); }, $scope.delay);
+					});
+
+			};
 
 		}
 	)
 
 	.controller('verifyController',
-		function($scope, $http) {
+		function($scope, $http, $timeout) {
 			$scope.pwd = '';
 			$scope.ticketList = [];
 
@@ -185,6 +242,15 @@ angular.module('getinside', ['ngAnimate'])
 
 				})
 					.success(function (data) {
+						if ( 0 == data['err'] ) {
+							$scope.jumbo.classes = 'green';
+							$scope.jumbo.content = 'Biglietto #' + data['id'] + ' impostato come "NON ENTRATO".';
+						} else {
+							$scope.jumbo.classes = 'red';
+							$scope.jumbo.content = 'Errore, chiama l\'admin.';
+						}
+						$scope.jumbo.toggle();
+						$timeout(function () { $scope.jumbo.reset(); }, $scope.delay);
 						$scope.getList();
 					});
 

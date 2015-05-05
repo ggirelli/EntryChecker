@@ -1,0 +1,19 @@
+#help h1.title {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding: 0.2em;
+
+	font-family: backspacer;
+	font-size: 5em;
+	text-align: center;
+
+	overflow: hidden;
+}
+
+#help a {
+	color: rgb(16, 156, 126);
+}
+
+#help a:hover {
+	color: rgb(13, 135, 110);
+}

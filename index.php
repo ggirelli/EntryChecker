@@ -27,6 +27,9 @@
 		<!-- verifica -->
 		<div id="verify" ng-include="'pages/verify.php'" ng-controller='verifyController as vCtrl' ng-model='vCtrl' ng-if="page.is(3)"></div>
 
+		<!-- help -->
+		<div id="help" ng-include="'pages/help.php'" ng-if="page.is(4)"></div>
+
 
 	</div>
 

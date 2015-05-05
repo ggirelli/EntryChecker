@@ -6,6 +6,8 @@
 #verify .table {
 	margin-bottom: 2em;
 	margin-top: 2em;
+
+	font-size: 1.5em;
 }
 
 #verify .ticket-filter {

@@ -1,4 +1,9 @@
 
+<h2>
+	Usa i filtri per individuare il biglietto che stai cercando,<br />
+	non dimenticarti di inserire la password per impostare un biglietto come <i>non entrato</i>.
+</h2>
+
 <div class="input-group ticket-filter">
 	<input class="form-control" type="text" id="filterNumber" name="filterNumber" ng-model="ticketFilter.number"
 		placeholder="Inserisci il numero di un biglietto per cercarlo nella tabella" />
@@ -32,4 +37,6 @@
 
 <input class="input-password form-control" type="password" id="password" name="password" ng-model="pwd" placeholder="Password di amministrazione richiesta per operare." />
 
-<button class="btn btn-aqua btn-block" ng-click="page.set(1)">back</button>
+<button class="btn btn-aqua btn-block" ng-click="page.set(1)">Indietro</button>
+
+<div class="jumbotron {{jumbo.classes}}" ng-if="jumbo.show">{{jumbo.content}}</div>
